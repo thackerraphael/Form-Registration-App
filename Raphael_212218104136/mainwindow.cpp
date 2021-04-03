@@ -29,6 +29,16 @@ void MainWindow::on_pushButton_clicked()
         qDebug()<<"Nothing is submitted..";
     }
 }
+void MainWindow::on_lineEdit_3_returnPressed()
+{
+    QRegularExpression re("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
+    QRegularExpressionMatch match = re.match(ui->lineEdit_3->text());
+    bool hasMatch = match.hasMatch();
+    if (!hasMatch)
+    {
+       QMessageBox::information(this,"Raphael 4136","Invalid Format");
+    }
+}
 
 
 
